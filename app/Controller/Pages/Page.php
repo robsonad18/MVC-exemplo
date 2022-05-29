@@ -8,28 +8,26 @@ class Page
 {
     private static function getHeader()
     {
-        return View::render('pages/header');
+        return View::render("pages/header");
     }
 
     private static function getFooter()
     {
-        return View::render('pages/footer');
+        return View::render("pages/footer");
     }
-
-
 
     /**
      * METDDO RESPONSAVEL POR RETORNAR O CONTEUDO DA PAGINA
      * 
      * @var App\Controller\Pages\funciton
      */
-    public static function getPage(string $title, $content)
+    static function getPage(string $title, $content)
     {
-        return View::render('pages/page', [
-            'title'   => $title,
-            'header'  => self::getHeader(),
-            'content' => $content,
-            'footer'  => self::getFooter()
+        return View::render("pages/page", [
+            "title"   => $title,
+            "header"  => self::getHeader(),
+            "content" => $content,
+            "footer"  => self::getFooter()
         ]);
     }
 }

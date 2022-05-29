@@ -15,13 +15,12 @@ class View
         return file_exists($file) ? file_get_contents($file) : '';
     }
 
-
     /**
      * Metodo responsavel por retornar o conteudo renderizado
      * @param mixed $view 
      * @return void 
      */
-    public static function render(string $view, array $vars = [])
+    static function render(string $view, array $vars = [])
     {
         $contentView = self::getContentsView($view);
 

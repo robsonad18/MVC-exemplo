@@ -5,6 +5,7 @@ namespace App\Controller\Pages;
 use App\Utils\View;
 
 use App\Model\Entity\Organization;
+use App\Utils\ConfigGlobal;
 
 class Home extends Page
 {
@@ -13,15 +14,15 @@ class Home extends Page
      * 
      * @var App\Controller\Pages\funciton
      */
-    public static function getHome()
+    static function getHome()
     {
         $obOrganization = new Organization;
+        $search = $obOrganization->get(1);
 
-        $content = View::render('pages/home', [
-            'name'         => $obOrganization->name,
-            'description'  => $obOrganization->description
+        $content = View::render("pages/home", [
+            "name"         => $search->name,
+            "description"  => $search->description
         ]);
-
-        return parent::getPage('MVC', $content);
+        return parent::getPage((new ConfigGlobal)->getSource(), $content);
     }
 }

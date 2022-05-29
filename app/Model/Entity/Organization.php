@@ -2,15 +2,27 @@
 
 namespace App\Model\Entity;
 
+use App\Model\Entity\Database;
+use App\Model\ViewModel\OrganizationViewModel;
 
 class Organization
 {
-
-    public $id = 1;
-
-    public $name = 'HOME CANAL WDEV';
-
-    public $site = 'url do site';
-
-    public $description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum";
+    static function get(int $id):?OrganizationViewModel
+    {
+        try 
+        {
+            $query = Database::get()->prepare("SELECT * FROM organization WHERE id = ?");
+            $query->execute([$id]);
+            $result = $query->fetch(\PDO::FETCH_ASSOC);
+            $result = $result != null && is_bool($result) === false ? $result : [];
+            
+            $viewModel = new OrganizationViewModel();
+            $viewModel->name = $result["name"];
+            $viewModel->description = $result["description"];
+            return $viewModel;
+        }catch(\PDOException $ex)
+        {
+            echo $ex->getMessage();
+        }
+    }
 }

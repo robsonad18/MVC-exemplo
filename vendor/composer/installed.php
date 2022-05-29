@@ -1,24 +1,23 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => '6006261ad07e2b7119be83f8692f582629e234f9',
+        'name' => 'projeto/mvc',
+        'dev' => true,
     ),
-    'reference' => NULL,
-    'name' => 'projeto/mvc',
-  ),
-  'versions' => 
-  array (
-    'projeto/mvc' => 
-    array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => NULL,
+    'versions' => array(
+        'projeto/mvc' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => '6006261ad07e2b7119be83f8692f582629e234f9',
+            'dev_requirement' => false,
+        ),
     ),
-  ),
 );
